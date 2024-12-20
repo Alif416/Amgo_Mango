@@ -2,4 +2,4 @@ enum TextSizes { small, medium, large }
 
 enum OrderStatus { processing, shipped, delivered }
 
-enum PaymentMethods { Bkash, Nagad }
+enum PaymentMethods { bkash, nagad }
