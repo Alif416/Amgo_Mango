@@ -4,7 +4,7 @@ class MAppBarTheme {
   MAppBarTheme._();
 }
 
-static const lightAppBarTheme = AppBarTheme(
+ const lightAppBarTheme = AppBarTheme(
   elevation: 0,
   centerTitle: false,
   scrolledUnderElevation: 0,
@@ -17,7 +17,7 @@ static const lightAppBarTheme = AppBarTheme(
 );
 
 
-static const darkAppBarTheme = AppBarTheme(
+ const darkAppBarTheme = AppBarTheme(
   elevation: 0,
   centerTitle: false,
   scrolledUnderElevation: 0,
