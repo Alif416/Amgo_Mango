@@ -1,29 +1,26 @@
-// ignore_for_file: unused_local_variable
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/features/authentication/controllers.onboarding/onboarding.controller.dart';
 import 'package:myapp/features/authentication/screens/onboarding/widget/onboarding_dot_navigation.dart';
+import 'package:myapp/features/authentication/screens/onboarding/widget/onboarding_next.dart';
 import 'package:myapp/features/authentication/screens/onboarding/widget/onboarding_page.dart';
 import 'package:myapp/features/authentication/screens/onboarding/widget/onboarding_skip.dart';
-import 'package:myapp/utils/constants/colors.dart';
 import 'package:myapp/utils/constants/image_strings.dart';
 import 'package:myapp/utils/constants/text_strings.dart';
-import 'package:myapp/utils/constants/sizes.dart';
-import 'package:myapp/utils/device/device_utility.dart';
-import 'package:myapp/utils/helpers/helper_functions.dart';
-
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final PageController controller = PageController();
+    final controller = Get.put(OnBoardingController());
 
     return Scaffold(
       body: Stack(
         children: [
           PageView(
-            controller: controller,
+            controller: controller.pageController,
+            onPageChanged: controller.updatePageIndicator,
             children: const [
               OnBoardingPage(
                 image: MImages.onBoardingImage1,
@@ -43,38 +40,15 @@ class OnBoardingScreen extends StatelessWidget {
             ],
           ),
 
-          // skip
+          // Skip button
           const OnBoardingSkip(),
 
           // Dot navigation design
-          OnBoardingDotNavigation(controller: controller),
+          OnBoardingDotNavigation(controller: controller.pageController),
 
           // Circular Button
           const OnBoardingNextButton(),
         ],
-      ),
-    );
-  }
-}
-
-class OnBoardingNextButton extends StatelessWidget {
-  const OnBoardingNextButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final dark = MHelperFunctions.isDarkMode(context);
-    return Positioned(
-      right: MSize.defaultSpace,
-      bottom: MDeviceUtils.getBottomNavigationBarHeight(),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          shape: const CircleBorder(),
-          backgroundColor: dark? MColors.primaryColor:Colors.black
-        ),
-        child: const Icon(Icons.arrow_forward),
       ),
     );
   }
