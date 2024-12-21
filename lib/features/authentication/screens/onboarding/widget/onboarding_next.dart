@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/features/authentication/controllers.onboarding/onboarding.controller.dart';
-import 'package:myapp/utils/constants/colors.dart';
+
 import 'package:myapp/utils/constants/sizes.dart';
 import 'package:myapp/utils/device/device_utility.dart';
-import 'package:myapp/utils/helpers/helper_functions.dart';
+
 
 class OnBoardingNextButton extends StatelessWidget {
   const OnBoardingNextButton({
@@ -12,7 +12,7 @@ class OnBoardingNextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool dark = MHelperFunctions.isDarkMode(context);
+   
     return Positioned(
       right: MSize.defaultSpace,
       bottom: MDeviceUtils.getBottomNavigationBarHeight(),
@@ -20,7 +20,7 @@ class OnBoardingNextButton extends StatelessWidget {
         onPressed: () => OnBoardingController.instance.nextPage(),
         style: ElevatedButton.styleFrom(
             shape: const CircleBorder(),
-            backgroundColor:  dark ? MColors.primaryColor : Colors.black),
+            backgroundColor: Colors.black),
         child: const Icon(Icons.arrow_forward),
       ),
     );
