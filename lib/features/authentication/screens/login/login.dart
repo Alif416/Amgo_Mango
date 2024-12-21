@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/common/styles/spacing_styles.dart';
+import 'package:myapp/features/authentication/screens/signup/signup.dart';
 import 'package:myapp/utils/constants/colors.dart';
 import 'package:myapp/utils/constants/text_strings.dart';
 
@@ -24,7 +25,7 @@ class LoginScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: MColors.primaryColor,
+                  color: MColors.darkBackgroundColor,
                 ),
               ),
               const SizedBox(height: 30),
@@ -80,12 +81,15 @@ class LoginScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                const  Text('Don\'t have an account?'),
+                  const Text('Don\'t have an account?'),
                   TextButton(
                     onPressed: () {
-                      // Handle "Sign Up" action here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SignupScreen()),
+                      );
                     },
-                    child:const  Text('Sign Up'),
+                    child: const Text('Sign Up'),
                   ),
                 ],
               ),
