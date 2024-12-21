@@ -15,7 +15,8 @@ class MTextStrings {
 
   // Error Messages
   static const String networkError = 'Network error. Please try again later.';
-  static const String invalidCredentials = 'Invalid credentials. Please try again.';
+  static const String invalidCredentials =
+      'Invalid credentials. Please try again.';
   static const String requiredField = 'This field is required.';
 
   // Form Labels
@@ -33,6 +34,17 @@ class MTextStrings {
   // Social Media Text
   static const String connectFacebook = 'Connect with Facebook';
   static const String connectLinkedIn = 'Connect with LinkedIn';
+
+  //OnBoarding Title
+
+  static const onBoardingTitle1 = 'Welcome to Amgo Mango';
+  static const onBoardingTitle2 = 'Shop with discount';
+  static const onBoardingTitle3 = 'Fast Delivery';
+
+  //OnBoarding Sub Title
+
+  static const onBoardingSubTitle1 = 'Best Place For Organic Foods ';
+  static const onBoardingSubTitle2 = 'Keep your family healthy';
+  static const onBoardingSubTitle3 = 'Order with us ';
+
 }
-
-

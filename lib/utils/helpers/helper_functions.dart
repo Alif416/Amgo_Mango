@@ -49,4 +49,6 @@ class MHelperFunctions {
   static double screenWidth() {
     return MediaQuery.of(Get.context!).size.width;
   }
+
+  static isDarkMode(BuildContext context) {}
 }

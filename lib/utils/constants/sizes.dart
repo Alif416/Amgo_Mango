@@ -42,4 +42,8 @@ class MSize {
   static const double fontSizeMedium = 16.0;
   static const double fontSizeLarge = 20.0;
   static const double fontSizeExtraLarge = 24.0;
+
+  //Default Space
+  static const double defaultSpace = 16.0;
+  
 }
