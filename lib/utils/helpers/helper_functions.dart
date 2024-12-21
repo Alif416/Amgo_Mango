@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:get/route_manager.dart';
 
 class MHelperFunctions {
   MHelperFunctions._();
@@ -33,5 +34,19 @@ class MHelperFunctions {
       default:
         return null; // Return null if color name is not recognized
     }
+  }
+
+  // Function to get screen width
+  static double getscreenWidth(BuildContext context) {
+    return MediaQuery.of(context).size.width;
+  }
+
+  // Function to get screen height
+  static double screenHeight() {
+    return MediaQuery.of(Get.context!).size.height;
+  }
+
+  static double screenWidth() {
+    return MediaQuery.of(Get.context!).size.width;
   }
 }

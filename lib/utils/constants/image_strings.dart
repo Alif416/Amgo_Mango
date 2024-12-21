@@ -6,7 +6,8 @@ class MImages {
   static const String profilePic = 'assets/images/profile_pic.png';
 
   // Background Images
-  static const String backgroundImageLight = 'assets/images/background_light.jpg';
+  static const String backgroundImageLight =
+      'assets/images/background_light.jpg';
   static const String backgroundImageDark = 'assets/images/background_dark.jpg';
 
   // Icons
@@ -15,10 +16,15 @@ class MImages {
 
   // Illustrations
   static const String illustrationWelcome = 'assets/illustrations/welcome.png';
-  static const String illustrationEmptyState = 'assets/illustrations/empty_state.png';
+  static const String illustrationEmptyState =
+      'assets/illustrations/empty_state.png';
 
   // Social Media Icons
   static const String facebookIcon = 'assets/icons/facebook_icon.png';
   static const String linkedinIcon = 'assets/icons/linkedin_icon.png';
-}
 
+  //-- Onboarding Images
+
+  static const String onBoardingImage1 =
+      "assets/images/onboarding_images/Animation - 1734762485041.gif";
+}
