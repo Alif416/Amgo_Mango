@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "446038377408",
+    "project_id": "amgo-mango",
+    "storage_bucket": "amgo-mango.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446038377408:android:2ab675e98286bba6fa7e25",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446038377408-krpt3goraqvra5ehh4m0fihqbsk04f34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB14CRyA-aqjP4giQeuVaNKORh5DE2cby4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446038377408-krpt3goraqvra5ehh4m0fihqbsk04f34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
