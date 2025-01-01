@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -9,6 +11,7 @@ import 'package:myapp/utils/popups/full_screen_loader.dart';
 import '../../../personalization/controllers/user_controller.dart';
 
 class LoginController extends GetxController {
+
   ///variables
   final rememberMe = false.obs;
   final hidePassword = true.obs;
@@ -18,6 +21,7 @@ class LoginController extends GetxController {
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   final userController = Get.put(UserController());
 
+
   @override
   void onInit() {
     email.text = localStorage.read('REMEMBER_ME_EMAIL') ?? '';
@@ -25,42 +29,33 @@ class LoginController extends GetxController {
     super.onInit();
   }
 
-  //email and password sign in
+  ///email and password sign in
   Future<void> emailAndPasswordSignIn() async {
     try {
-      print('Starting email and password sign in'); // Debug print
-
       //start loading
-      MFullScreenLoader.openLoadingDialog(
-          'Logging you in...', MImages.docerAnimation);
+      MFullScreenLoader.openLoadingDialog('Logging you in...', MImages.docerAnimation);
 
       //check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
-      print('Internet connectivity: $isConnected'); // Debug print
-      if (!isConnected) {
+      if(!isConnected){
         MFullScreenLoader.stopLoading();
         return;
       }
 
       //form validation
-      if (!loginFormKey.currentState!.validate()) {
-        print('Form validation failed'); // Debug print
+      if(!loginFormKey.currentState!.validate()) {
         MFullScreenLoader.stopLoading();
         return;
       }
 
       //save data if remember me is selected
-      if (rememberMe.value) {
+      if(rememberMe.value) {
         localStorage.write('REMEMBER_ME_EMAIL', email.text.trim());
         localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());
       }
 
       //login user with email & password authentication
-      print(
-          'Attempting to login with email: ${email.text.trim()}'); // Debug print
-      final userCredentials = await AuthenticationRepository.instance
-          .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
-      print('Login successful: $userCredentials'); // Debug print
+      final userCredentials = await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
       //remove loader
       MFullScreenLoader.stopLoading();
@@ -68,7 +63,6 @@ class LoginController extends GetxController {
       //Redirect
       AuthenticationRepository.instance.screenRedirect();
     } catch (e) {
-      print('Error during login: $e'); // Debug print
       MFullScreenLoader.stopLoading();
       MLoaders.errorSnackBar(title: 'Oh snap...', message: e.toString());
     }
@@ -76,21 +70,19 @@ class LoginController extends GetxController {
 
   /// Google signIn authentication
   Future<void> googleSignIn() async {
-    try {
+    try{
       // Start Loading
-      MFullScreenLoader.openLoadingDialog(
-          'Logging you in...', MImages.docerAnimation);
+      MFullScreenLoader.openLoadingDialog('Logging you in...', MImages.docerAnimation);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) {
+      if(!isConnected) {
         MFullScreenLoader.stopLoading();
         return;
       }
 
       // Google Authentication
-      final userCredentials =
-          await AuthenticationRepository.instance.signInWithGoogle();
+      final userCredentials = await AuthenticationRepository.instance.signInWithGoogle();
 
       // Save User Record
       await userController.saveUserRecord(userCredentials);
@@ -100,7 +92,8 @@ class LoginController extends GetxController {
 
       // Redirect
       AuthenticationRepository.instance.screenRedirect();
-    } catch (e) {
+
+    } catch(e) {
       // Remove Loader
       MFullScreenLoader.stopLoading();
 

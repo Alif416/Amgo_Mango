@@ -9,7 +9,7 @@ import 'package:myapp/utils/constants/text_strings.dart';
 import 'package:myapp/utils/helpers/helper_functions.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({Key? key, required this.email}) : super(key: key);
+  const ResetPasswordScreen({super.key, required this.email});
 
   final String email;
 

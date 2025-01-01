@@ -22,8 +22,9 @@ class SignupController extends GetxController {
   final password = TextEditingController(); //controller for password input
   final firstName = TextEditingController(); //controller for firstname input
   final phoneNumber =
-  TextEditingController(); //controller for phone number input
-  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>(); //form key for form validation
+      TextEditingController(); //controller for phone number input
+  GlobalKey<FormState> signupFormKey =
+      GlobalKey<FormState>(); //form key for form validation
 
   ///Sign up
   void signup() async {
@@ -91,7 +92,6 @@ class SignupController extends GetxController {
 
       //show some generic error to the user
       MLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
-      
     }
   }
 }

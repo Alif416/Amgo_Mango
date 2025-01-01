@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/common/widgets/success_screen/success_screen.dart';
-import '../../../../utils/constants/image_strings.dart';
-import '../../../../utils/constants/sizes.dart';
-import '../../../../utils/constants/text_strings.dart';
-import '../../../../utils/helpers/helper_functions.dart';
-import '../login/login.dart';
+import 'package:myapp/data/repositories/authentication_repository.dart';
+import 'package:myapp/features/authentication/controllers/signup/verify_email_controller.dart';
+import 'package:myapp/utils/constants/image_strings.dart';
+import 'package:myapp/utils/constants/sizes.dart';
+import 'package:myapp/utils/constants/text_strings.dart';
+import 'package:myapp/utils/helpers/helper_functions.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
   const VerifyEmailScreen({super.key, this.email});
@@ -14,12 +14,13 @@ class VerifyEmailScreen extends StatelessWidget {
   final String? email;
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () => AuthenticationRepository.instance.logout(),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),
@@ -54,19 +55,14 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => controller.checkEmailVerificationStatus(),
                     child: const Text(MTexts.tContinue)),
               ),
               const SizedBox(height: MSizes.spaceBtwItems),
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                    onPressed: ()=>Get.to(()=>SuccessScreen(
-                      image: MImages.staticSuccessIllustration,
-                      title: MTexts.yourAccountCreatedTitle, 
-                      subTitle: MTexts.yourAccountCreatedSubTitle, 
-                      onPressed: ()=>Get.to(()=>const LoginScreen()))
-                      ),
+                    onPressed: () => controller.sendEmailVerification(),
                     child: const Text(MTexts.resendEmail)),
               ),
             ],
